@@ -1,7 +1,8 @@
-# lambda-gate-resume-parser serverless API
-The lambda-gate-resume-parser project, created with [`aws-serverless-java-container`](https://github.com/awslabs/aws-serverless-java-container).
-
+# lambda-gate-resume-parser Serverless API
+The lambda-gate-resume-parser project, created with [aws-serverless-java-container](https://github.com/awslabs/aws-serverless-java-container).
 The starter project defines a simple `/ping` resource that can accept `GET` requests with its tests.
+
+To parser used, is based on the GATE Framework, and takes heavy inspiration from [ResumeParser](https://github.com/antonydeepak/ResumeParser).
 
 The project folder also includes a `sam.yaml` file. You can use this [SAM](https://github.com/awslabs/serverless-application-model) file to deploy the project to AWS Lambda and Amazon API Gateway or test in local with [SAM Local](https://github.com/awslabs/aws-sam-local). 
 
