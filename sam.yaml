@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Serverless Spark API - com.emploai.apps::lambda-gate-resume-parser
+Resources:
+  LambdaGateResumeParserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.emploai.apps.StreamLambdaHandler::handleRequest
+      Runtime: java8
+      CodeUri: target/lambda-gate-resume-parser-1.0-SNAPSHOT.jar
+      MemorySize: 512
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 30
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+      Environment:
+        Variables:
+          S3_BUCKET: "xxxxxxxxx"
+          AWS_ACCESS_ID: "xxxxxxxxx"
+          AWS_SECRET: "xxxxxxxxx"
+
+Outputs:
+  LambdaGateResumeParserApi:
+    Description: URL for application
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ping'
+    Export:
+      Name: LambdaGateResumeParserApi
